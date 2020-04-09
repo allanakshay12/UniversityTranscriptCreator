@@ -76,7 +76,7 @@ namespace UniversityTranscriptCreator
 
             this.password_tb.Location = new System.Drawing.Point(30, 150);
             this.password_tb.Size = new System.Drawing.Size(200, 15);
-            this.password_tb.PasswordChar = '*'; 
+            this.password_tb.PasswordChar = '*';
 
             this.login_button.Location = new System.Drawing.Point(320, 117);
             this.login_button.Text = "Login";
@@ -95,4 +95,3 @@ namespace UniversityTranscriptCreator
         }
     }
 }
-
