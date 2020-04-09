@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityTranscriptCreator", "UniversityTranscriptCreator.csproj", "{24812AC5-2E9E-4D2B-AA08-0485419D4EFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24812AC5-2E9E-4D2B-AA08-0485419D4EFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24812AC5-2E9E-4D2B-AA08-0485419D4EFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24812AC5-2E9E-4D2B-AA08-0485419D4EFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24812AC5-2E9E-4D2B-AA08-0485419D4EFB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF8DD476-9930-40DD-9827-9FFBE7FE9F56}
+	EndGlobalSection
+EndGlobal
