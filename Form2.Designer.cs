@@ -30,16 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.SubjectButton = new System.Windows.Forms.Button();
-            this.StudentButton = new System.Windows.Forms.Button();
-            this.MarksButton = new System.Windows.Forms.Button();
-            this.EnrollButton = new System.Windows.Forms.Button();
-            this.BranchButton = new System.Windows.Forms.Button();
-            this.UsersButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.RegNoTranscript = new System.Windows.Forms.TextBox();
             this.GenerateButton = new System.Windows.Forms.Button();
+            this.UsersButton = new System.Windows.Forms.Button();
+            this.StudentButton = new System.Windows.Forms.Button();
+            this.BranchButton = new System.Windows.Forms.Button();
+            this.EnrollButton = new System.Windows.Forms.Button();
+            this.MarksButton = new System.Windows.Forms.Button();
+            this.SubjectButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -58,96 +58,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Manage Databases";
-            // 
-            // SubjectButton
-            // 
-            this.SubjectButton.BackColor = System.Drawing.Color.White;
-            this.SubjectButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.SubjectButton.Image = ((System.Drawing.Image)(resources.GetObject("SubjectButton.Image")));
-            this.SubjectButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SubjectButton.Location = new System.Drawing.Point(38, 101);
-            this.SubjectButton.Name = "SubjectButton";
-            this.SubjectButton.Padding = new System.Windows.Forms.Padding(13, 0, 10, 0);
-            this.SubjectButton.Size = new System.Drawing.Size(185, 59);
-            this.SubjectButton.TabIndex = 1;
-            this.SubjectButton.Text = "Manage Subjects";
-            this.SubjectButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.SubjectButton.UseVisualStyleBackColor = false;
-            // 
-            // StudentButton
-            // 
-            this.StudentButton.BackColor = System.Drawing.Color.White;
-            this.StudentButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.StudentButton.Image = ((System.Drawing.Image)(resources.GetObject("StudentButton.Image")));
-            this.StudentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.StudentButton.Location = new System.Drawing.Point(38, 36);
-            this.StudentButton.Name = "StudentButton";
-            this.StudentButton.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.StudentButton.Size = new System.Drawing.Size(185, 59);
-            this.StudentButton.TabIndex = 0;
-            this.StudentButton.Text = "Manage Students";
-            this.StudentButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.StudentButton.UseVisualStyleBackColor = false;
-            // 
-            // MarksButton
-            // 
-            this.MarksButton.BackColor = System.Drawing.Color.White;
-            this.MarksButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.MarksButton.Image = ((System.Drawing.Image)(resources.GetObject("MarksButton.Image")));
-            this.MarksButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MarksButton.Location = new System.Drawing.Point(38, 166);
-            this.MarksButton.Name = "MarksButton";
-            this.MarksButton.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.MarksButton.Size = new System.Drawing.Size(185, 59);
-            this.MarksButton.TabIndex = 2;
-            this.MarksButton.Text = "Manage Marks";
-            this.MarksButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MarksButton.UseVisualStyleBackColor = false;
-            // 
-            // EnrollButton
-            // 
-            this.EnrollButton.BackColor = System.Drawing.Color.White;
-            this.EnrollButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.EnrollButton.Image = ((System.Drawing.Image)(resources.GetObject("EnrollButton.Image")));
-            this.EnrollButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EnrollButton.Location = new System.Drawing.Point(38, 231);
-            this.EnrollButton.Name = "EnrollButton";
-            this.EnrollButton.Padding = new System.Windows.Forms.Padding(13, 0, 10, 0);
-            this.EnrollButton.Size = new System.Drawing.Size(185, 59);
-            this.EnrollButton.TabIndex = 3;
-            this.EnrollButton.Text = "Manage Enrollment";
-            this.EnrollButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.EnrollButton.UseVisualStyleBackColor = false;
-            // 
-            // BranchButton
-            // 
-            this.BranchButton.BackColor = System.Drawing.Color.White;
-            this.BranchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BranchButton.Image = ((System.Drawing.Image)(resources.GetObject("BranchButton.Image")));
-            this.BranchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BranchButton.Location = new System.Drawing.Point(38, 296);
-            this.BranchButton.Name = "BranchButton";
-            this.BranchButton.Padding = new System.Windows.Forms.Padding(12, 0, 10, 0);
-            this.BranchButton.Size = new System.Drawing.Size(185, 59);
-            this.BranchButton.TabIndex = 4;
-            this.BranchButton.Text = "Manage Branches";
-            this.BranchButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BranchButton.UseVisualStyleBackColor = false;
-            // 
-            // UsersButton
-            // 
-            this.UsersButton.BackColor = System.Drawing.Color.White;
-            this.UsersButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.UsersButton.Image = ((System.Drawing.Image)(resources.GetObject("UsersButton.Image")));
-            this.UsersButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UsersButton.Location = new System.Drawing.Point(38, 361);
-            this.UsersButton.Name = "UsersButton";
-            this.UsersButton.Padding = new System.Windows.Forms.Padding(16, 0, 10, 0);
-            this.UsersButton.Size = new System.Drawing.Size(185, 59);
-            this.UsersButton.TabIndex = 5;
-            this.UsersButton.Text = "Manage Users";
-            this.UsersButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.UsersButton.UseVisualStyleBackColor = false;
             // 
             // groupBox2
             // 
@@ -191,6 +101,98 @@
             this.GenerateButton.Text = "Generate Transcript";
             this.GenerateButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.GenerateButton.UseVisualStyleBackColor = false;
+            // 
+            // UsersButton
+            // 
+            this.UsersButton.BackColor = System.Drawing.Color.White;
+            this.UsersButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.UsersButton.Image = ((System.Drawing.Image)(resources.GetObject("UsersButton.Image")));
+            this.UsersButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UsersButton.Location = new System.Drawing.Point(38, 361);
+            this.UsersButton.Name = "UsersButton";
+            this.UsersButton.Padding = new System.Windows.Forms.Padding(16, 0, 10, 0);
+            this.UsersButton.Size = new System.Drawing.Size(185, 59);
+            this.UsersButton.TabIndex = 5;
+            this.UsersButton.Text = "Manage Users";
+            this.UsersButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UsersButton.UseVisualStyleBackColor = false;
+            // 
+            // StudentButton
+            // 
+            this.StudentButton.BackColor = System.Drawing.Color.White;
+            this.StudentButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.StudentButton.Image = ((System.Drawing.Image)(resources.GetObject("StudentButton.Image")));
+            this.StudentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.StudentButton.Location = new System.Drawing.Point(38, 36);
+            this.StudentButton.Name = "StudentButton";
+            this.StudentButton.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.StudentButton.Size = new System.Drawing.Size(185, 59);
+            this.StudentButton.TabIndex = 0;
+            this.StudentButton.Text = "Manage Students";
+            this.StudentButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.StudentButton.UseVisualStyleBackColor = false;
+            this.StudentButton.Click += new System.EventHandler(this.StudentButton_Click);
+            // 
+            // BranchButton
+            // 
+            this.BranchButton.BackColor = System.Drawing.Color.White;
+            this.BranchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BranchButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BranchButton.Image = ((System.Drawing.Image)(resources.GetObject("BranchButton.Image")));
+            this.BranchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BranchButton.Location = new System.Drawing.Point(38, 296);
+            this.BranchButton.Name = "BranchButton";
+            this.BranchButton.Padding = new System.Windows.Forms.Padding(12, 0, 10, 0);
+            this.BranchButton.Size = new System.Drawing.Size(185, 59);
+            this.BranchButton.TabIndex = 4;
+            this.BranchButton.Text = "Manage Branches";
+            this.BranchButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BranchButton.UseVisualStyleBackColor = false;
+            // 
+            // EnrollButton
+            // 
+            this.EnrollButton.BackColor = System.Drawing.Color.White;
+            this.EnrollButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.EnrollButton.Image = ((System.Drawing.Image)(resources.GetObject("EnrollButton.Image")));
+            this.EnrollButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.EnrollButton.Location = new System.Drawing.Point(38, 231);
+            this.EnrollButton.Name = "EnrollButton";
+            this.EnrollButton.Padding = new System.Windows.Forms.Padding(13, 0, 10, 0);
+            this.EnrollButton.Size = new System.Drawing.Size(185, 59);
+            this.EnrollButton.TabIndex = 3;
+            this.EnrollButton.Text = "Manage Enrollment";
+            this.EnrollButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.EnrollButton.UseVisualStyleBackColor = false;
+            // 
+            // MarksButton
+            // 
+            this.MarksButton.BackColor = System.Drawing.Color.White;
+            this.MarksButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.MarksButton.Image = ((System.Drawing.Image)(resources.GetObject("MarksButton.Image")));
+            this.MarksButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.MarksButton.Location = new System.Drawing.Point(38, 166);
+            this.MarksButton.Name = "MarksButton";
+            this.MarksButton.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.MarksButton.Size = new System.Drawing.Size(185, 59);
+            this.MarksButton.TabIndex = 2;
+            this.MarksButton.Text = "Manage Marks";
+            this.MarksButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MarksButton.UseVisualStyleBackColor = false;
+            // 
+            // SubjectButton
+            // 
+            this.SubjectButton.BackColor = System.Drawing.Color.White;
+            this.SubjectButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.SubjectButton.Image = ((System.Drawing.Image)(resources.GetObject("SubjectButton.Image")));
+            this.SubjectButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SubjectButton.Location = new System.Drawing.Point(38, 101);
+            this.SubjectButton.Name = "SubjectButton";
+            this.SubjectButton.Padding = new System.Windows.Forms.Padding(13, 0, 10, 0);
+            this.SubjectButton.Size = new System.Drawing.Size(185, 59);
+            this.SubjectButton.TabIndex = 1;
+            this.SubjectButton.Text = "Manage Subjects";
+            this.SubjectButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SubjectButton.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 

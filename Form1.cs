@@ -16,6 +16,10 @@ namespace UniversityTranscriptCreator
         private TextBox username = new TextBox();
         private TextBox password = new TextBox();
         private Button login = new Button();
+        private SqlConnection cnn;
+        private string connectionString;
+
+        
         /*private ListBox lstBox = new ListBox();
         private CheckBox chkBox = new CheckBox();
         private Label lblCount = new Label();
@@ -27,15 +31,20 @@ namespace UniversityTranscriptCreator
         public LoginForm()
         {
             InitializeComponent();
-           /* this.Text = "University Transcript Creator";
-            this.MaximizeBox = false;
-            this.MinimizeBox = true;
-            this.BackColor = Color.White;
-            this.ForeColor = Color.Black;
-            this.Size = new System.Drawing.Size(500, 300);
-            this.WindowState = FormWindowState.Normal;
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.StartPosition = FormStartPosition.CenterScreen;*/
+            connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\Database2.mdf;Integrated Security=True";
+            cnn = new SqlConnection(connectionString);
+
+            cnn.Open();
+
+            /* this.Text = "University Transcript Creator";
+             this.MaximizeBox = false;
+             this.MinimizeBox = true;
+             this.BackColor = Color.White;
+             this.ForeColor = Color.Black;
+             this.Size = new System.Drawing.Size(500, 300);
+             this.WindowState = FormWindowState.Normal;
+             this.FormBorderStyle = FormBorderStyle.FixedDialog;
+             this.StartPosition = FormStartPosition.CenterScreen;*/
 
             /*this.btnAdd.BackColor = Color.Gray;
             this.btnAdd.Text = "Add";
@@ -95,9 +104,9 @@ namespace UniversityTranscriptCreator
             this.Controls.Add(chkBox);
             this.Controls.Add(lblCount);*/
 
-           /* Database2DataSet. UniversityDataset = Database2DataSet.UsersDataTable;
+            /* Database2DataSet. UniversityDataset = Database2DataSet.UsersDataTable;
 
-            Database2DataSet.UsersRow user = Database2DataSet.Users.FindByUserName("Hola");*/
+             Database2DataSet.UsersRow user = Database2DataSet.Users.FindByUserName("Hola");*/
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -114,16 +123,11 @@ namespace UniversityTranscriptCreator
         {
             string username_string = username.Text.Trim();
             string password_string = password.Text;
-            string connectionString;
-            SqlConnection cnn;
-            connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database2.mdf;Integrated Security=True";
-            cnn = new SqlConnection(connectionString);
-
-            cnn.Open();
+            
 
             SqlCommand command;
             SqlDataReader dataReader;
-            String sql, Output = "";
+            string sql, Output = "";
 
             sql = "Select Password from dbo.Users where UserName=\'" + username_string + "\'";
 
@@ -158,9 +162,11 @@ namespace UniversityTranscriptCreator
                 {
                     MessageBox.Show("Invalid Username or Password.");
                 }
+                dataReader.Close();
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+                
             }
 
 

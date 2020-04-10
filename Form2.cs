@@ -21,5 +21,11 @@ namespace UniversityTranscriptCreator
         {
 
         }
+
+        private void StudentButton_Click(object sender, EventArgs e)
+        {
+            ManageStudentForm manageStudentForm = new ManageStudentForm();
+            manageStudentForm.Show();
+        }
     }
 }
