@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,22 +11,23 @@ using System.Windows.Forms;
 
 namespace UniversityTranscriptCreator
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
-        private TextBox txtBox = new TextBox();
-        private Button btnAdd = new Button();
-        private ListBox lstBox = new ListBox();
+        private TextBox username = new TextBox();
+        private TextBox password = new TextBox();
+        private Button login = new Button();
+        /*private ListBox lstBox = new ListBox();
         private CheckBox chkBox = new CheckBox();
         private Label lblCount = new Label();
         private Label username_label = new Label();
         private Label password_label = new Label();
         private TextBox username_tb = new TextBox();
         private TextBox password_tb = new TextBox();
-        private Button login_button = new Button();
-        public Form1()
+        private Button login_button = new Button();*/
+        public LoginForm()
         {
             InitializeComponent();
-            this.Text = "University Transcript Creator";
+           /* this.Text = "University Transcript Creator";
             this.MaximizeBox = false;
             this.MinimizeBox = true;
             this.BackColor = Color.White;
@@ -33,7 +35,7 @@ namespace UniversityTranscriptCreator
             this.Size = new System.Drawing.Size(500, 300);
             this.WindowState = FormWindowState.Normal;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.StartPosition = FormStartPosition.CenterScreen;
+            this.StartPosition = FormStartPosition.CenterScreen;*/
 
             /*this.btnAdd.BackColor = Color.Gray;
             this.btnAdd.Text = "Add";
@@ -61,7 +63,7 @@ namespace UniversityTranscriptCreator
             this.lblCount.Location = new System.Drawing.Point(55, 160);
             this.lblCount.Size = new System.Drawing.Size(65, 15);*/
 
-            this.username_label.Text = "Please enter the username:";
+            /*this.username_label.Text = "Please enter the username:";
             this.username_label.Location = new System.Drawing.Point(30, 60);
             this.username_label.Size = new System.Drawing.Size(200, 15);
 
@@ -86,12 +88,92 @@ namespace UniversityTranscriptCreator
             this.Controls.Add(password_label);
             this.Controls.Add(username_tb);
             this.Controls.Add(password_tb);
-            this.Controls.Add(login_button);
+            this.Controls.Add(login_button);*/
             /*this.Controls.Add(btnAdd);
             this.Controls.Add(txtBox);
             this.Controls.Add(lstBox);
             this.Controls.Add(chkBox);
             this.Controls.Add(lblCount);*/
+
+           /* Database2DataSet. UniversityDataset = Database2DataSet.UsersDataTable;
+
+            Database2DataSet.UsersRow user = Database2DataSet.Users.FindByUserName("Hola");*/
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string username_string = username.Text.Trim();
+            string password_string = password.Text;
+            string connectionString;
+            SqlConnection cnn;
+            connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database2.mdf;Integrated Security=True";
+            cnn = new SqlConnection(connectionString);
+
+            cnn.Open();
+
+            SqlCommand command;
+            SqlDataReader dataReader;
+            String sql, Output = "";
+
+            sql = "Select Password from dbo.Users where UserName=\'" + username_string + "\'";
+
+            command = new SqlCommand(sql, cnn);
+
+            try
+            {
+
+                dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    try
+                    {
+                        Output = Output + dataReader.GetValue(0);
+                    }
+                    catch (Exception exc)
+                    {
+                        Output = "";
+                    }
+                }
+
+                if (password_string.Equals(Output) && !Output.Equals(""))
+                {
+                    MainForm form2 = new MainForm();
+                    form2.Closed += (s, args) => this.Close();
+                    form2.Show();
+                    this.Hide();
+           
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Username or Password.");
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            username = (TextBox)sender;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            password = (TextBox)sender;
         }
     }
 }

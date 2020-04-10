@@ -6,3 +6,15 @@ C:\Users\Jerry Allan Akshay\Desktop\Test\UniversityTranscriptCreator\obj\Debug\U
 C:\Users\Jerry Allan Akshay\Desktop\Test\UniversityTranscriptCreator\obj\Debug\UniversityTranscriptCreator.csproj.GenerateResource.cache
 C:\Users\Jerry Allan Akshay\Desktop\Test\UniversityTranscriptCreator\obj\Debug\UniversityTranscriptCreator.exe
 C:\Users\Jerry Allan Akshay\Desktop\Test\UniversityTranscriptCreator\obj\Debug\UniversityTranscriptCreator.pdb
+C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\bin\Debug\Database2.mdf
+C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\bin\Debug\Database2_log.ldf
+C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\bin\Debug\UniversityTranscriptCreator.exe.config
+C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\bin\Debug\UniversityTranscriptCreator.exe
+C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\bin\Debug\UniversityTranscriptCreator.pdb
+C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\obj\Debug\UniversityTranscriptCreator.csprojAssemblyReference.cache
+C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\obj\Debug\UniversityTranscriptCreator.Properties.Resources.resources
+C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\obj\Debug\UniversityTranscriptCreator.csproj.GenerateResource.cache
+C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\obj\Debug\UniversityTranscriptCreator.exe
+C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\obj\Debug\UniversityTranscriptCreator.pdb
+C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\obj\Debug\UniversityTranscriptCreator.LoginForm.resources
+C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\obj\Debug\UniversityTranscriptCreator.MainForm.resources
