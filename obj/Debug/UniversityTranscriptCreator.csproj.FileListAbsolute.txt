@@ -20,3 +20,8 @@ C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\Unive
 C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\bin\Debug\System.Data.SqlClient.dll
 C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\bin\Debug\System.Data.SqlClient.xml
 C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\obj\Debug\UniversityTranscriptCreator.csproj.CopyComplete
+C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\obj\Debug\UniversityTranscriptCreator.SubjectForm.resources
+C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\obj\Debug\UniversityTranscriptCreator.EnrollmentForm.resources
+C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\obj\Debug\UniversityTranscriptCreator.BranchForm.resources
+C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\obj\Debug\UniversityTranscriptCreator.UserForm.resources
+C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\obj\Debug\UniversityTranscriptCreator.MarksForm.resources

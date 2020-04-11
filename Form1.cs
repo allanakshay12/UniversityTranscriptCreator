@@ -19,6 +19,10 @@ namespace UniversityTranscriptCreator
         private SqlConnection cnn;
         private string connectionString;
 
+        public static string username_data;
+        public static string password_data;
+        public static string name_data;
+
         
         /*private ListBox lstBox = new ListBox();
         private CheckBox chkBox = new CheckBox();
@@ -32,6 +36,8 @@ namespace UniversityTranscriptCreator
         {
             InitializeComponent();
             connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jerry Allan Akshay\Documents\GitHub\University Transcript Creator\UniversityTranscriptCreator\Database2.mdf;Integrated Security=True";
+            //string 
+            //connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|".Substring(0, @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|Data Directory|".Length-10) + @"\Database2.mdf;Integrated Security=True";
             cnn = new SqlConnection(connectionString);
 
             cnn.Open();
@@ -123,7 +129,12 @@ namespace UniversityTranscriptCreator
         {
             string username_string = username.Text.Trim();
             string password_string = password.Text;
+
+            username_data = username.Text.Trim();
+            password_data = password.Text;
             
+
+
 
             SqlCommand command;
             SqlDataReader dataReader;
@@ -152,11 +163,34 @@ namespace UniversityTranscriptCreator
 
                 if (password_string.Equals(Output) && !Output.Equals(""))
                 {
+                    dataReader.Close();
+                    cnn.Close();
                     MainForm form2 = new MainForm();
                     form2.Closed += (s, args) => this.Close();
                     form2.Show();
                     this.Hide();
-           
+
+                    cnn.Open();
+                    sql = "Select Name from dbo.Users where UserName=\'" + username_string + "\' and Password=\'"+password_string+"\';";
+                    command = new SqlCommand(sql, cnn);
+                    dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        try
+                        {
+                            name_data =  dataReader.GetValue(0).ToString();
+                        }
+                        catch (Exception exc)
+                        {
+                            
+                        }
+                    }
+
+                    dataReader.Close();
+
+                    cnn.Close();
+
                 }
                 else
                 {
@@ -180,6 +214,20 @@ namespace UniversityTranscriptCreator
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             password = (TextBox)sender;
+        }
+
+        public string getName()
+        {
+            return name_data;
+        }
+        public string getUsername()
+        {
+            return username_data;
+        }
+
+        public string getPassword()
+        {
+            return password_data;
         }
     }
 }

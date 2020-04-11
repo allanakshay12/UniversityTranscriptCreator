@@ -35,7 +35,7 @@ namespace UniversityTranscriptCreator
             SqlDataReader dataReaderbr;
             string sqlbr;
 
-            sqlbr = "Select distinct Branch from dbo.BranchSubject";
+            sqlbr = "Select Branch from dbo.BranchList";
 
             commandbr = new SqlCommand(sqlbr, cnn);
             dataReaderbr = commandbr.ExecuteReader();
@@ -48,13 +48,19 @@ namespace UniversityTranscriptCreator
                 BranchComboBoxModify.Items.Add(dataReaderbr.GetValue(0).ToString());
                 BranchView.Items.Add(dataReaderbr.GetValue(0).ToString());
             }
+            try
+            {
+                AddBranchComboBox.SelectedIndex = 0;
+            } catch (Exception ex)
+            {
 
-            AddBranchComboBox.SelectedIndex = 0;
+            }
 
             BranchView.SelectedIndex = 0;
 
 
             dataReaderbr.Close();
+            cnn.Close();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -89,7 +95,7 @@ namespace UniversityTranscriptCreator
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            cnn.Open();
             RegNoModify.Enabled = false;
             button1.Enabled = false;
             string regno_string = ModifyRegNo.Text.Trim();
@@ -128,10 +134,12 @@ namespace UniversityTranscriptCreator
                 dataReader.Close();
             } catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                //MessageBox.Show(ex.ToString());
+                StudentGroupBox.Enabled = false;
                 RegNoModify.Enabled = true;
                 button1.Enabled = true;
             }
+            cnn.Close();
         }
 
         private void RegNoModify_TextChanged(object sender, EventArgs e)
@@ -148,12 +156,13 @@ namespace UniversityTranscriptCreator
                 DataTable dtb = new DataTable();
                 sqlDa.Fill(dtb);
                 DataGridStudent.DataSource = dtb;
-
+                sqlCon.Close();
             }
         }
 
         private void UpdateStudent_Click(object sender, EventArgs e)
         {
+            cnn.Open();
             SqlCommand command;
             SqlDataReader dataReader;
             string sql;
@@ -168,6 +177,7 @@ namespace UniversityTranscriptCreator
             {
                 dataReader = command.ExecuteReader();
                 MessageBox.Show("Details Successfully updated.");
+                FillStudentData("select * from dbo.StudentDetails;");
                 StudentGroupBox.Enabled = false;
                 dataReader.Close();
                 RegNoModify.Enabled = true;
@@ -178,8 +188,9 @@ namespace UniversityTranscriptCreator
 
             } catch (Exception ex)
             {
-                MessageBox.Show("Unable to Update Details. Kindly check the details again and try again." + ex.ToString());
+                MessageBox.Show("Unable to Update Details. Kindly check the details again and try again.");
             }
+            cnn.Close();
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -211,30 +222,37 @@ namespace UniversityTranscriptCreator
 
             //MessageBox.Show(date);
 
-
-            if (!AddRegNo.Text.Trim().Equals("") && !AddName.Text.Trim().Equals("") && !AddPhNo.Text.Trim().Equals(""))
+            try
             {
-                cmd.CommandText = "insert dbo.StudentDetails (RegNo, Name, Phone_Number, Branch, DOB) values (\'" + AddRegNo.Text.Trim() + "\', \'" + AddName.Text.Trim() + "\', \'" + AddPhNo.Text.Trim() + "\', \'" + AddBranchComboBox.SelectedItem.ToString() + "\', \'" + date + "\');";
-
-                cmd.Connection = sqlConnection1;
-
-                sqlConnection1.Open();
-                try
+                if (!AddRegNo.Text.Trim().Equals("") && !AddName.Text.Trim().Equals("") && !AddPhNo.Text.Trim().Equals(""))
                 {
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Student Successfully Added.");
-                    AddPhNo.Text = "";
-                    AddRegNo.Text = "";
-                    AddName.Text = "";
+                    cmd.CommandText = "insert dbo.StudentDetails (RegNo, Name, Phone_Number, Branch, DOB) values (\'" + AddRegNo.Text.Trim() + "\', \'" + AddName.Text.Trim() + "\', \'" + AddPhNo.Text.Trim() + "\', \'" + AddBranchComboBox.SelectedItem.ToString() + "\', \'" + date + "\');";
+
+                    cmd.Connection = sqlConnection1;
+
+                    sqlConnection1.Open();
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Student Successfully Added.");
+                        FillStudentData("select * from dbo.StudentDetails;");
+                        AddPhNo.Text = "";
+                        AddRegNo.Text = "";
+                        AddName.Text = "";
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Unable to add Student. Kindly check the details again and try again.");
+                    }
+                    sqlConnection1.Close();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Unable to add Student. Kindly check the details again and try again.");
+                    MessageBox.Show("Please fill in all the fields.");
                 }
-                sqlConnection1.Close();
-            } else
+            } catch (Exception ex)
             {
-                MessageBox.Show("Please fill in all the fields.");
+                MessageBox.Show("Unable to add Student. Kindly check the details again and try again.");
             }
 
             //command = new SqlCommand(sql, cnn);
@@ -275,6 +293,7 @@ namespace UniversityTranscriptCreator
             {
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Student Successfully Deleted.");
+                FillStudentData("select * from dbo.StudentDetails;");
                 RegNoModify.Enabled = true;
                 button1.Enabled = true;
                 DOBModify.Text = "";
@@ -347,7 +366,7 @@ namespace UniversityTranscriptCreator
             string query = "select * from dbo.StudentDetails where" + namequery + branchquery + phnoquery + dobquery + regnoquery;
             query = query.Substring(0, query.Length-3) + ";";
             //MessageBox.Show(query);
-            if (dobquery.Equals("") && regnoquery.Equals("") && branchquery.Equals("All Branches") && phnoquery.Equals("") && dobquery.Equals(""))
+            if (dobquery.Equals("") && regnoquery.Equals("") && branchquery.Equals("All Branches") && phnoquery.Equals("") && dobquery.Equals("") && namequery.Equals(""))
             {
                 FillStudentData("select * from dbo.StudentDetails;");
             }
@@ -358,7 +377,7 @@ namespace UniversityTranscriptCreator
                     FillStudentData(query);
                 } catch (Exception ex)
                 {
-                    MessageBox.Show("An error occured with the query. Kindly try again." + ex.ToString());
+                    MessageBox.Show("An error occured with the query. Kindly try again.");
                     FillStudentData("select * from dbo.StudentDetails;");
                 }
             }

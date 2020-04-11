@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.RegNoTranscript = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.GenerateButton = new System.Windows.Forms.Button();
             this.UsersButton = new System.Windows.Forms.Button();
             this.StudentButton = new System.Windows.Forms.Button();
@@ -64,12 +64,19 @@
             this.groupBox2.Controls.Add(this.GenerateButton);
             this.groupBox2.Controls.Add(this.RegNoTranscript);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(304, 172);
+            this.groupBox2.Location = new System.Drawing.Point(283, 172);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(418, 134);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Generate Transcripts";
+            // 
+            // RegNoTranscript
+            // 
+            this.RegNoTranscript.Location = new System.Drawing.Point(19, 62);
+            this.RegNoTranscript.Name = "RegNoTranscript";
+            this.RegNoTranscript.Size = new System.Drawing.Size(186, 20);
+            this.RegNoTranscript.TabIndex = 1;
             // 
             // label1
             // 
@@ -79,13 +86,6 @@
             this.label1.Size = new System.Drawing.Size(146, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Student Registration Number:";
-            // 
-            // RegNoTranscript
-            // 
-            this.RegNoTranscript.Location = new System.Drawing.Point(19, 62);
-            this.RegNoTranscript.Name = "RegNoTranscript";
-            this.RegNoTranscript.Size = new System.Drawing.Size(186, 20);
-            this.RegNoTranscript.TabIndex = 1;
             // 
             // GenerateButton
             // 
@@ -116,6 +116,7 @@
             this.UsersButton.Text = "Manage Users";
             this.UsersButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.UsersButton.UseVisualStyleBackColor = false;
+            this.UsersButton.Click += new System.EventHandler(this.UsersButton_Click);
             // 
             // StudentButton
             // 
@@ -148,6 +149,7 @@
             this.BranchButton.Text = "Manage Branches";
             this.BranchButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BranchButton.UseVisualStyleBackColor = false;
+            this.BranchButton.Click += new System.EventHandler(this.BranchButton_Click);
             // 
             // EnrollButton
             // 
@@ -163,6 +165,7 @@
             this.EnrollButton.Text = "Manage Enrollment";
             this.EnrollButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.EnrollButton.UseVisualStyleBackColor = false;
+            this.EnrollButton.Click += new System.EventHandler(this.EnrollButton_Click);
             // 
             // MarksButton
             // 
@@ -178,6 +181,7 @@
             this.MarksButton.Text = "Manage Marks";
             this.MarksButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.MarksButton.UseVisualStyleBackColor = false;
+            this.MarksButton.Click += new System.EventHandler(this.MarksButton_Click);
             // 
             // SubjectButton
             // 
@@ -193,6 +197,7 @@
             this.SubjectButton.Text = "Manage Subjects";
             this.SubjectButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.SubjectButton.UseVisualStyleBackColor = false;
+            this.SubjectButton.Click += new System.EventHandler(this.SubjectButton_Click);
             // 
             // MainForm
             // 
@@ -200,7 +205,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(734, 470);
+            this.ClientSize = new System.Drawing.Size(712, 470);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
