@@ -30,16 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.RegNoTranscript = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.GenerateButton = new System.Windows.Forms.Button();
             this.UsersButton = new System.Windows.Forms.Button();
             this.StudentButton = new System.Windows.Forms.Button();
             this.BranchButton = new System.Windows.Forms.Button();
             this.EnrollButton = new System.Windows.Forms.Button();
             this.MarksButton = new System.Windows.Forms.Button();
             this.SubjectButton = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.GenerateButton = new System.Windows.Forms.Button();
+            this.RegNoTranscript = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -58,49 +58,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Manage Databases";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.GenerateButton);
-            this.groupBox2.Controls.Add(this.RegNoTranscript);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(283, 172);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(418, 134);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Generate Transcripts";
-            // 
-            // RegNoTranscript
-            // 
-            this.RegNoTranscript.Location = new System.Drawing.Point(19, 62);
-            this.RegNoTranscript.Name = "RegNoTranscript";
-            this.RegNoTranscript.Size = new System.Drawing.Size(186, 20);
-            this.RegNoTranscript.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Student Registration Number:";
-            // 
-            // GenerateButton
-            // 
-            this.GenerateButton.BackColor = System.Drawing.Color.White;
-            this.GenerateButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.GenerateButton.Image = ((System.Drawing.Image)(resources.GetObject("GenerateButton.Image")));
-            this.GenerateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GenerateButton.Location = new System.Drawing.Point(237, 41);
-            this.GenerateButton.Name = "GenerateButton";
-            this.GenerateButton.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.GenerateButton.Size = new System.Drawing.Size(162, 54);
-            this.GenerateButton.TabIndex = 6;
-            this.GenerateButton.Text = "Generate Transcript";
-            this.GenerateButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.GenerateButton.UseVisualStyleBackColor = false;
             // 
             // UsersButton
             // 
@@ -198,6 +155,50 @@
             this.SubjectButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.SubjectButton.UseVisualStyleBackColor = false;
             this.SubjectButton.Click += new System.EventHandler(this.SubjectButton_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.GenerateButton);
+            this.groupBox2.Controls.Add(this.RegNoTranscript);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Location = new System.Drawing.Point(283, 172);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(418, 134);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Generate Transcripts";
+            // 
+            // GenerateButton
+            // 
+            this.GenerateButton.BackColor = System.Drawing.Color.White;
+            this.GenerateButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.GenerateButton.Image = ((System.Drawing.Image)(resources.GetObject("GenerateButton.Image")));
+            this.GenerateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.GenerateButton.Location = new System.Drawing.Point(237, 41);
+            this.GenerateButton.Name = "GenerateButton";
+            this.GenerateButton.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.GenerateButton.Size = new System.Drawing.Size(162, 54);
+            this.GenerateButton.TabIndex = 6;
+            this.GenerateButton.Text = "Generate Transcript";
+            this.GenerateButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.GenerateButton.UseVisualStyleBackColor = false;
+            this.GenerateButton.Click += new System.EventHandler(this.GenerateButton_Click);
+            // 
+            // RegNoTranscript
+            // 
+            this.RegNoTranscript.Location = new System.Drawing.Point(19, 62);
+            this.RegNoTranscript.Name = "RegNoTranscript";
+            this.RegNoTranscript.Size = new System.Drawing.Size(186, 20);
+            this.RegNoTranscript.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(146, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Student Registration Number:";
             // 
             // MainForm
             // 
