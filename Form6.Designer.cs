@@ -117,6 +117,8 @@
             this.BranchComboBoxAdd.Name = "BranchComboBoxAdd";
             this.BranchComboBoxAdd.Size = new System.Drawing.Size(256, 21);
             this.BranchComboBoxAdd.TabIndex = 13;
+            this.BranchComboBoxAdd.SelectedIndexChanged += new System.EventHandler(this.BranchComboBoxAdd_SelectedIndexChanged);
+            this.BranchComboBoxAdd.TextChanged += new System.EventHandler(this.BranchComboBoxAdd_TextChanged);
             // 
             // AddButton
             // 

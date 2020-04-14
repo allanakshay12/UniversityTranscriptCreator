@@ -30,19 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MarksForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.AddOutOf = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.AddSubjectComboBox = new System.Windows.Forms.ComboBox();
             this.AddStudentRegNoComboBox = new System.Windows.Forms.ComboBox();
+            this.AddButton = new System.Windows.Forms.Button();
             this.AddMarks = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.AddButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.AddOutOf = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ModifyRegNoComboBox = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.SubjectGroupBox = new System.Windows.Forms.GroupBox();
+            this.ModifyOutOf = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.ModifyMarks = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.ModifySubjectComboBox = new System.Windows.Forms.ComboBox();
@@ -50,12 +52,14 @@
             this.CancelButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.ModifyOutOf = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.DataGridSubject = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.ViewSubjectName = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.ViewOutOf = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.ViewMarks = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.SearchButton = new System.Windows.Forms.Button();
@@ -63,10 +67,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.ViewRegistrationNo = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.ViewOutOf = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.ViewSubjectName = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SubjectGroupBox.SuspendLayout();
@@ -94,6 +94,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Marks";
             // 
+            // AddOutOf
+            // 
+            this.AddOutOf.Location = new System.Drawing.Point(116, 154);
+            this.AddOutOf.MaxLength = 3;
+            this.AddOutOf.Name = "AddOutOf";
+            this.AddOutOf.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.AddOutOf.Size = new System.Drawing.Size(82, 20);
+            this.AddOutOf.TabIndex = 16;
+            this.AddOutOf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddOutOf_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(98, 157);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(12, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "/";
+            // 
             // AddSubjectComboBox
             // 
             this.AddSubjectComboBox.FormattingEnabled = true;
@@ -101,6 +120,7 @@
             this.AddSubjectComboBox.Name = "AddSubjectComboBox";
             this.AddSubjectComboBox.Size = new System.Drawing.Size(268, 21);
             this.AddSubjectComboBox.TabIndex = 14;
+            this.AddSubjectComboBox.SelectedIndexChanged += new System.EventHandler(this.AddSubjectComboBox_SelectedIndexChanged);
             // 
             // AddStudentRegNoComboBox
             // 
@@ -111,6 +131,21 @@
             this.AddStudentRegNoComboBox.TabIndex = 13;
             this.AddStudentRegNoComboBox.SelectedIndexChanged += new System.EventHandler(this.AddStudentRegNoComboBox_SelectedIndexChanged);
             this.AddStudentRegNoComboBox.TextUpdate += new System.EventHandler(this.AddStudentRegNoComboBox_TextUpdate);
+            // 
+            // AddButton
+            // 
+            this.AddButton.BackColor = System.Drawing.Color.White;
+            this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.Image")));
+            this.AddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AddButton.Location = new System.Drawing.Point(10, 199);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Padding = new System.Windows.Forms.Padding(78, 0, 78, 0);
+            this.AddButton.Size = new System.Drawing.Size(268, 53);
+            this.AddButton.TabIndex = 12;
+            this.AddButton.Text = "Add Marks";
+            this.AddButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // AddMarks
             // 
@@ -148,40 +183,6 @@
             this.label1.Size = new System.Drawing.Size(146, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Student Registration Number:";
-            // 
-            // AddButton
-            // 
-            this.AddButton.BackColor = System.Drawing.Color.White;
-            this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.Image")));
-            this.AddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AddButton.Location = new System.Drawing.Point(10, 199);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Padding = new System.Windows.Forms.Padding(78, 0, 78, 0);
-            this.AddButton.Size = new System.Drawing.Size(268, 53);
-            this.AddButton.TabIndex = 12;
-            this.AddButton.Text = "Add Marks";
-            this.AddButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AddButton.UseVisualStyleBackColor = false;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(98, 157);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(12, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "/";
-            // 
-            // AddOutOf
-            // 
-            this.AddOutOf.Location = new System.Drawing.Point(116, 154);
-            this.AddOutOf.MaxLength = 3;
-            this.AddOutOf.Name = "AddOutOf";
-            this.AddOutOf.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.AddOutOf.Size = new System.Drawing.Size(82, 20);
-            this.AddOutOf.TabIndex = 16;
-            this.AddOutOf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddOutOf_KeyPress);
             // 
             // groupBox2
             // 
@@ -232,6 +233,25 @@
             this.SubjectGroupBox.TabIndex = 3;
             this.SubjectGroupBox.TabStop = false;
             this.SubjectGroupBox.Text = "Subject Marks";
+            // 
+            // ModifyOutOf
+            // 
+            this.ModifyOutOf.Location = new System.Drawing.Point(212, 43);
+            this.ModifyOutOf.MaxLength = 3;
+            this.ModifyOutOf.Name = "ModifyOutOf";
+            this.ModifyOutOf.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ModifyOutOf.Size = new System.Drawing.Size(50, 20);
+            this.ModifyOutOf.TabIndex = 20;
+            this.ModifyOutOf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(194, 46);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(12, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "/";
             // 
             // ModifyMarks
             // 
@@ -310,25 +330,6 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Student Registration Number:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(194, 46);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(12, 13);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "/";
-            // 
-            // ModifyOutOf
-            // 
-            this.ModifyOutOf.Location = new System.Drawing.Point(212, 43);
-            this.ModifyOutOf.MaxLength = 3;
-            this.ModifyOutOf.Name = "ModifyOutOf";
-            this.ModifyOutOf.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ModifyOutOf.Size = new System.Drawing.Size(50, 20);
-            this.ModifyOutOf.TabIndex = 20;
-            this.ModifyOutOf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.groupBox5);
@@ -381,6 +382,42 @@
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Query Parameters";
+            // 
+            // ViewSubjectName
+            // 
+            this.ViewSubjectName.Location = new System.Drawing.Point(189, 76);
+            this.ViewSubjectName.Name = "ViewSubjectName";
+            this.ViewSubjectName.Size = new System.Drawing.Size(156, 20);
+            this.ViewSubjectName.TabIndex = 20;
+            this.ViewSubjectName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(186, 61);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(77, 13);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "Subject Name:";
+            // 
+            // ViewOutOf
+            // 
+            this.ViewOutOf.Location = new System.Drawing.Point(275, 34);
+            this.ViewOutOf.MaxLength = 3;
+            this.ViewOutOf.Name = "ViewOutOf";
+            this.ViewOutOf.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ViewOutOf.Size = new System.Drawing.Size(62, 20);
+            this.ViewOutOf.TabIndex = 18;
+            this.ViewOutOf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(257, 37);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(12, 13);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "/";
             // 
             // ViewMarks
             // 
@@ -447,42 +484,6 @@
             this.label11.Size = new System.Drawing.Size(146, 13);
             this.label11.TabIndex = 2;
             this.label11.Text = "Student Registration Number:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(257, 37);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(12, 13);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "/";
-            // 
-            // ViewOutOf
-            // 
-            this.ViewOutOf.Location = new System.Drawing.Point(275, 34);
-            this.ViewOutOf.MaxLength = 3;
-            this.ViewOutOf.Name = "ViewOutOf";
-            this.ViewOutOf.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ViewOutOf.Size = new System.Drawing.Size(62, 20);
-            this.ViewOutOf.TabIndex = 18;
-            this.ViewOutOf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(186, 61);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(77, 13);
-            this.label13.TabIndex = 19;
-            this.label13.Text = "Subject Name:";
-            // 
-            // ViewSubjectName
-            // 
-            this.ViewSubjectName.Location = new System.Drawing.Point(189, 76);
-            this.ViewSubjectName.Name = "ViewSubjectName";
-            this.ViewSubjectName.Size = new System.Drawing.Size(156, 20);
-            this.ViewSubjectName.TabIndex = 20;
-            this.ViewSubjectName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // MarksForm
             // 

@@ -106,7 +106,7 @@ namespace UniversityTranscriptCreator
             string sqlbr;
             try
             {
-                sqlbr = "Select dbo.BranchSubject.Code from dbo.StudentDetails, dbo.BranchSubject, dbo.EnrollList where dbo.BranchSubject.Branch=dbo.StudentDetails.Branch and dbo.BranchSubject.Code=dbo.EnrollList.Code and dbo.EnrollList.RegNo=dbo.StudentDetails.RegNo and dbo.StudentDetails.RegNo=\'" + ((ComboBox)sender).Text.Trim() + "\';";
+                sqlbr = "Select dbo.BranchSubject.Code from dbo.StudentDetails, dbo.BranchSubject, dbo.EnrollList where dbo.BranchSubject.Branch=dbo.StudentDetails.Branch and dbo.BranchSubject.Code=dbo.EnrollList.Code and dbo.EnrollList.RegNo=dbo.StudentDetails.RegNo and dbo.StudentDetails.RegNo=\'" + ((ComboBox)sender).Text.Trim() + "\' and dbo.BranchSubject.Code not in (select Code from dbo.Marks where RegNo=\'" + ((ComboBox)sender).Text.Trim() + "\');";
 
                 commandbr = new SqlCommand(sqlbr, cnn);
 
@@ -148,7 +148,7 @@ namespace UniversityTranscriptCreator
             string sqlbr;
             try
             {
-                sqlbr = "Select dbo.BranchSubject.Code from dbo.StudentDetails, dbo.BranchSubject, dbo.EnrollList where dbo.BranchSubject.Branch=dbo.StudentDetails.Branch and dbo.BranchSubject.Code=dbo.EnrollList.Code and dbo.EnrollList.RegNo=dbo.StudentDetails.RegNo and dbo.StudentDetails.RegNo=\'" + ((ComboBox)sender).SelectedItem.ToString().Trim() + "\';";
+                sqlbr = "Select dbo.BranchSubject.Code from dbo.StudentDetails, dbo.BranchSubject, dbo.EnrollList where dbo.BranchSubject.Branch=dbo.StudentDetails.Branch and dbo.BranchSubject.Code=dbo.EnrollList.Code and dbo.EnrollList.RegNo=dbo.StudentDetails.RegNo and dbo.StudentDetails.RegNo=\'" + ((ComboBox)sender).SelectedItem.ToString().Trim() + "\' and dbo.BranchSubject.Code not in (select Code from dbo.Marks where RegNo=\'" + ((ComboBox)sender).SelectedItem.ToString().Trim() + "\');";
 
                 commandbr = new SqlCommand(sqlbr, cnn);
 
@@ -497,6 +497,11 @@ namespace UniversityTranscriptCreator
             {
                 MessageBox.Show("Please fill in all the fields.");
             }
+        }
+
+        private void AddSubjectComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

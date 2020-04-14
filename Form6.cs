@@ -32,7 +32,7 @@ namespace UniversityTranscriptCreator
             sqlbr = "Select Code from dbo.Subject;";
 
             commandbr = new SqlCommand(sqlbr, cnn);
-            dataReaderbr = commandbr.ExecuteReader();
+            /*dataReaderbr = commandbr.ExecuteReader();
 
             //BranchView.Items.Add("All Branches");
 
@@ -42,7 +42,7 @@ namespace UniversityTranscriptCreator
                 //BranchModify.Items.Add(dataReaderbr.GetValue(0).ToString());
             }
 
-            dataReaderbr.Close();
+            dataReaderbr.Close();*/
 
 
             PopulateBranchComboBox();
@@ -535,5 +535,72 @@ namespace UniversityTranscriptCreator
 
             cnn1.Close();
         }
+
+        private void BranchComboBoxAdd_TextChanged(object sender, EventArgs e)
+        {
+            SubjectComboBoxAdd.Items.Clear();
+            cnn.Open();
+            SqlCommand commandbr;
+            SqlDataReader dataReaderbr;
+            string sqlbr;
+
+            sqlbr = "Select Code from dbo.Subject where Code not in (select Code from dbo.BranchSubject where Branch=\'" +BranchComboBoxAdd.Text.Trim()+"\');";
+
+            commandbr = new SqlCommand(sqlbr, cnn);
+            dataReaderbr = commandbr.ExecuteReader();
+
+            //BranchView.Items.Add("All Branches");
+
+            while (dataReaderbr.Read())
+            {
+                SubjectComboBoxAdd.Items.Add(dataReaderbr.GetValue(0).ToString());
+                //BranchModify.Items.Add(dataReaderbr.GetValue(0).ToString());
+            }
+
+            dataReaderbr.Close();
+
+
+            //PopulateBranchComboBox();
+
+            SubjectComboBoxAdd.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            SubjectComboBoxAdd.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+
+            cnn.Close();
+        }
+
+        private void BranchComboBoxAdd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SubjectComboBoxAdd.Items.Clear();
+            cnn.Open();
+            SqlCommand commandbr;
+            SqlDataReader dataReaderbr;
+            string sqlbr;
+
+            sqlbr = "Select Code from dbo.Subject where Code not in (select Code from dbo.BranchSubject where Branch=\'" + BranchComboBoxAdd.SelectedItem.ToString() + "\');";
+
+            commandbr = new SqlCommand(sqlbr, cnn);
+            dataReaderbr = commandbr.ExecuteReader();
+
+            //BranchView.Items.Add("All Branches");
+
+            while (dataReaderbr.Read())
+            {
+                SubjectComboBoxAdd.Items.Add(dataReaderbr.GetValue(0).ToString());
+                //BranchModify.Items.Add(dataReaderbr.GetValue(0).ToString());
+            }
+
+            dataReaderbr.Close();
+
+
+            //PopulateBranchComboBox();
+
+            SubjectComboBoxAdd.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            SubjectComboBoxAdd.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+
+            cnn.Close();
+        }
     }
 }
+

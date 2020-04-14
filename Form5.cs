@@ -135,7 +135,7 @@ namespace UniversityTranscriptCreator
             string sqlbr;
             try 
             { 
-            sqlbr = "Select Code from dbo.StudentDetails, dbo.BranchSubject where dbo.StudentDetails.Branch=dbo.BranchSubject.Branch and RegNo=\'" + ((ComboBox)sender).Text.Trim()+"\';";
+            sqlbr = "Select Code from dbo.StudentDetails, dbo.BranchSubject where dbo.StudentDetails.Branch=dbo.BranchSubject.Branch and RegNo=\'" + ((ComboBox)sender).Text.Trim()+"\' and Code not in (select Code from dbo.EnrollList where RegNo=\'" + ((ComboBox)sender).Text.Trim() + "\');";
 
             commandbr = new SqlCommand(sqlbr, cnn);
             
@@ -177,7 +177,7 @@ namespace UniversityTranscriptCreator
             string sqlbr;
             try
             {
-                sqlbr = "Select Code from dbo.StudentDetails, dbo.BranchSubject where dbo.StudentDetails.Branch=dbo.BranchSubject.Branch and RegNo=\'" + ((ComboBox)sender).SelectedItem.ToString().Trim() + "\';";
+                sqlbr = "Select Code from dbo.StudentDetails, dbo.BranchSubject where dbo.StudentDetails.Branch=dbo.BranchSubject.Branch and RegNo=\'" + ((ComboBox)sender).SelectedItem.ToString() + "\' and Code not in (select Code from dbo.EnrollList where RegNo=\'" + ((ComboBox)sender).SelectedItem.ToString() + "\');";
 
                 commandbr = new SqlCommand(sqlbr, cnn);
 
@@ -202,7 +202,7 @@ namespace UniversityTranscriptCreator
             }
             catch (Exception ex)
             {
-
+                //MessageBox.Show(ex.ToString());
             }
 
             cnn.Close();
