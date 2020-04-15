@@ -39,8 +39,8 @@ namespace UniversityTranscriptCreator
             //string 
             //connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|".Substring(0, @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|Data Directory|".Length-10) + @"\Database2.mdf;Integrated Security=True";
             cnn = new SqlConnection(connectionString);
-
             cnn.Open();
+            //cnn.Open();
 
             /* this.Text = "University Transcript Creator";
              this.MaximizeBox = false;
@@ -127,14 +127,15 @@ namespace UniversityTranscriptCreator
 
         private void button1_Click(object sender, EventArgs e)
         {
+            cnn.Close();
             string username_string = username.Text.Trim();
             string password_string = password.Text;
 
             username_data = username.Text.Trim();
             password_data = password.Text;
-            
 
 
+            cnn.Open();
 
             SqlCommand command;
             SqlDataReader dataReader;
@@ -166,8 +167,10 @@ namespace UniversityTranscriptCreator
                     dataReader.Close();
                     cnn.Close();
                     MainForm form2 = new MainForm();
-                    form2.Closed += (s, args) => this.Close();
+                    //form2.Closed += (s, args) => this.Close();
                     form2.Show();
+                    password.Text = "";
+                    username.Text = "";
                     this.Hide();
 
                     cnn.Open();
@@ -195,8 +198,11 @@ namespace UniversityTranscriptCreator
                 else
                 {
                     MessageBox.Show("Invalid Username or Password.");
+                    cnn.Close();
+
                 }
                 dataReader.Close();
+                //cnn.Close();
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());

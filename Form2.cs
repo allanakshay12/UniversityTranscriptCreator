@@ -217,6 +217,9 @@ namespace UniversityTranscriptCreator
                         int count = 1;
                         float sub_avg_marks = 0;
                         float sub_avg_outof = 0, sub_avg_per = 0;
+                        float overall_marks = 0;
+                        float overall_max = 0;
+                        float overall_per = 0;
                         List<string> sem_text = new List<string>();
                         float[] pointColumnWidths = { 40F, 80F, 150F, 80F, 80F, 70F, 90F };
                         Table table = new Table(pointColumnWidths);
@@ -235,8 +238,10 @@ namespace UniversityTranscriptCreator
                             
                             if (cur_semester != prev_semester)
                             {
-                                if (cur_semester != 1)
+                                if (cur_semester != 1 && cur_sem_max!=0)
                                 {
+                                    overall_marks = overall_marks + cur_sem_total;
+                                    overall_max = overall_max + cur_sem_max;
                                     /*foreach (string s in sem_text) {
                                         document.Add(new Paragraph(s));
                                     }*/
@@ -248,9 +253,9 @@ namespace UniversityTranscriptCreator
                                     float[] lastwidth = { 300F};
                                     Table lasttable = new Table(lastwidth);
                                     lasttable.SetBorder(border: Border.NO_BORDER);
-                                    lasttable.AddCell((new Cell().Add((new Paragraph("Total Marks: " + cur_sem_total)).SetTextAlignment(TextAlignment.LEFT))).SetBorder(border: Border.NO_BORDER).SetVerticalAlignment(VerticalAlignment.MIDDLE));
-                                    lasttable.AddCell((new Cell().Add((new Paragraph("Max. Marks: " + cur_sem_max)).SetTextAlignment(TextAlignment.LEFT))).SetBorder(border: Border.NO_BORDER).SetVerticalAlignment(VerticalAlignment.MIDDLE));
-                                    lasttable.AddCell((new Cell().Add((new Paragraph("Percentage Secured: " + String.Format("{0:0.00}", percentage))).SetTextAlignment(TextAlignment.LEFT))).SetBorder(border: Border.NO_BORDER).SetVerticalAlignment(VerticalAlignment.MIDDLE));
+                                    lasttable.AddCell((new Cell().Add((new Paragraph("Total Marks Secured: " + cur_sem_total)).SetTextAlignment(TextAlignment.LEFT))).SetBorder(border: Border.NO_BORDER).SetVerticalAlignment(VerticalAlignment.MIDDLE));
+                                    lasttable.AddCell((new Cell().Add((new Paragraph("Total Max. Marks: " + cur_sem_max)).SetTextAlignment(TextAlignment.LEFT))).SetBorder(border: Border.NO_BORDER).SetVerticalAlignment(VerticalAlignment.MIDDLE));
+                                    lasttable.AddCell((new Cell().Add((new Paragraph("Percentage Secured: " + String.Format("{0:0.00}", percentage) + " %")).SetTextAlignment(TextAlignment.LEFT))).SetBorder(border: Border.NO_BORDER).SetVerticalAlignment(VerticalAlignment.MIDDLE));
                                     document.Add(new Paragraph("\n\n"));
                                     document.Add(lasttable);
                                     //document.Add((new Paragraph("\n\nTotal Marks: " + cur_sem_total + "\t\tMax Marks: " + cur_sem_max + "\t\tPercentage Secured: " + String.Format("{0:0.00}", percentage))));
@@ -286,6 +291,8 @@ namespace UniversityTranscriptCreator
                                 } else
                                 {
                                     sem_text.Clear();
+                                    overall_marks = overall_marks + cur_sem_total;
+                                    overall_max = overall_max + cur_sem_max;
                                     cur_sem_total = 0;
                                     cur_sem_max = 0;
                                     count = 1;
@@ -351,8 +358,8 @@ namespace UniversityTranscriptCreator
                             table.AddCell((new Cell().Add((new Paragraph(sub_title)).SetTextAlignment(TextAlignment.CENTER))).SetVerticalAlignment(VerticalAlignment.MIDDLE));//.SetBorder(border: Border.NO_BORDER));
                             table.AddCell((new Cell().Add((new Paragraph(marks)).SetTextAlignment(TextAlignment.CENTER))).SetVerticalAlignment(VerticalAlignment.MIDDLE));//.SetBorder(border: Border.NO_BORDER));
                             table.AddCell((new Cell().Add((new Paragraph(outof)).SetTextAlignment(TextAlignment.CENTER))).SetVerticalAlignment(VerticalAlignment.MIDDLE));//.SetBorder(border: Border.NO_BORDER));
-                            table.AddCell((new Cell().Add((new Paragraph(String.Format("{0:0.00}", (float.Parse(marks)/float.Parse(outof))*100))).SetTextAlignment(TextAlignment.CENTER))).SetVerticalAlignment(VerticalAlignment.MIDDLE));//.SetBorder(border: Border.NO_BORDER));
-                            table.AddCell((new Cell().Add((new Paragraph(String.Format("{0:0.00}", sub_avg_per))).SetTextAlignment(TextAlignment.CENTER))).SetVerticalAlignment(VerticalAlignment.MIDDLE));//.SetBorder(border: Border.NO_BORDER));
+                            table.AddCell((new Cell().Add((new Paragraph(String.Format("{0:0.00}", (float.Parse(marks)/float.Parse(outof))*100) + " %")).SetTextAlignment(TextAlignment.CENTER))).SetVerticalAlignment(VerticalAlignment.MIDDLE));//.SetBorder(border: Border.NO_BORDER));
+                            table.AddCell((new Cell().Add((new Paragraph(String.Format("{0:0.00}", sub_avg_per) + " %")).SetTextAlignment(TextAlignment.CENTER))).SetVerticalAlignment(VerticalAlignment.MIDDLE));//.SetBorder(border: Border.NO_BORDER));
                             count = count + 1;
                         }
                         /*foreach (string s in sem_text)
@@ -362,12 +369,14 @@ namespace UniversityTranscriptCreator
                         document.Add(new Paragraph("\n\n"));
                         document.Add(table);
                         percentage = (float)((cur_sem_total / cur_sem_max) * 100);
+                        overall_marks = overall_marks + cur_sem_total;
+                        overall_max = overall_max + cur_sem_max;
                         float[] actlastwidth = { 300F };
                         Table actlasttable = new Table(actlastwidth);
                         actlasttable.SetBorder(border: Border.NO_BORDER);
-                        actlasttable.AddCell((new Cell().Add((new Paragraph("Total Marks: " + cur_sem_total)).SetTextAlignment(TextAlignment.LEFT))).SetBorder(border: Border.NO_BORDER).SetVerticalAlignment(VerticalAlignment.MIDDLE));
-                        actlasttable.AddCell((new Cell().Add((new Paragraph("Max. Marks: " + cur_sem_max)).SetTextAlignment(TextAlignment.LEFT))).SetBorder(border: Border.NO_BORDER).SetVerticalAlignment(VerticalAlignment.MIDDLE));
-                        actlasttable.AddCell((new Cell().Add((new Paragraph("Percentage Secured: " + String.Format("{0:0.00}", percentage))).SetTextAlignment(TextAlignment.LEFT))).SetBorder(border: Border.NO_BORDER).SetVerticalAlignment(VerticalAlignment.MIDDLE));
+                        actlasttable.AddCell((new Cell().Add((new Paragraph("Total Marks Secured: " + cur_sem_total)).SetTextAlignment(TextAlignment.LEFT))).SetBorder(border: Border.NO_BORDER).SetVerticalAlignment(VerticalAlignment.MIDDLE));
+                        actlasttable.AddCell((new Cell().Add((new Paragraph("Total Max. Marks: " + cur_sem_max)).SetTextAlignment(TextAlignment.LEFT))).SetBorder(border: Border.NO_BORDER).SetVerticalAlignment(VerticalAlignment.MIDDLE));
+                        actlasttable.AddCell((new Cell().Add((new Paragraph("Percentage Secured: " + String.Format("{0:0.00}", percentage) + " %")).SetTextAlignment(TextAlignment.LEFT))).SetBorder(border: Border.NO_BORDER).SetVerticalAlignment(VerticalAlignment.MIDDLE));
                         document.Add(new Paragraph("\n\n"));
                         document.Add(actlasttable);
                         //document.Add((new Paragraph("Total Marks: " + cur_sem_total + "\t\tMax Marks: " + cur_sem_max + "\t\tPercentage Secured: " + String.Format("{0:0.00}", percentage))));
@@ -391,10 +400,11 @@ namespace UniversityTranscriptCreator
                         iText.Layout.Element.Image lastlogo = new iText.Layout.Element.Image(ImageDataFactory.Create("C:\\Users\\Jerry Allan Akshay\\Documents\\GitHub\\University Transcript Creator\\UniversityTranscriptCreator\\Icon.jpg"));
                         lastlogo.SetHeight(200);
                         lastlogo.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
-                        lastlogo.SetRelativePosition(0,275,0,0);
+                        lastlogo.SetRelativePosition(0,260,0,0);
                         //lastlogo.SetFixedPosition(500, 750);
                         document.Add(lastlogo);
-                        document.Add((new Paragraph("Digitally signed and verified by " + LoginForm.name_data +" (" + dig + ").")).SetTextAlignment(TextAlignment.CENTER).SetRelativePosition(0,300,0,0));
+                        overall_per = (overall_marks / overall_max) * 100;
+                        document.Add((new Paragraph("Digitally signed and verified by " + LoginForm.name_data +" (" + dig + ").\nOverall Percentage: " + String.Format("{0:0.00}", overall_per) + " %")).SetTextAlignment(TextAlignment.CENTER).SetRelativePosition(0,285,0,0));
                         document.Close();
                         newcnn.Close();
                         MessageBox.Show("Transript generated and stored at:\n\n" + dest + ".");
@@ -417,8 +427,23 @@ namespace UniversityTranscriptCreator
             }
         }
 
-       
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+            FormCollection fc = Application.OpenForms;
 
+            foreach (Form frm in fc)
+            {
+                //iterate through
+                if (frm.Name == "LoginForm")
+                {
+                    
+                    frm.Show();
+                    frm.BringToFront();
+                }
+            }
+            
+        }
     }
 
 }
